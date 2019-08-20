@@ -30,6 +30,9 @@ class CreatePostsTable extends Migration
             $table->string('post_sub_category')->default('Programming')->comment('The Post SubCategory');
             $table->string('tags')->default('PHP')->comment('The tags the post belongs to');
             $table->bigInteger('number_of_likes')->default(0)->comment('Number of likes a post has');
+            $table->string('post_images')->default('')->comment('A comma separated list of blog post images names');
+            $table->string('post_title_link')->default('link')->comment('A broken title link');
+
         });
     }
 
@@ -40,6 +43,8 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
+
         Schema::dropIfExists('posts');
+
     }
 }

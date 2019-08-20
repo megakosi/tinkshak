@@ -1,0 +1,172 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+nav ul a,
+nav .brand-logo {
+    color: #444;
+}
+
+p {
+    line-height: 2rem;
+}
+
+.sidenav-trigger {
+    color: #26a69a;
+}
+
+.parallax-container {
+    min-height: 380px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255,255,255,.9);
+}
+.parallax-container .section {
+    width: 100%;
+}
+
+@media only screen and (max-width : 992px) {
+    .parallax-container .section {
+        position: absolute;
+        top: 40%;
+    }
+    #index-banner .section {
+        top: 10%;
+    }
+}
+
+@media only screen and (max-width : 600px) {
+    #index-banner .section {
+        top: 0;
+    }
+}
+
+.icon-block {
+    padding: 0 15px;
+}
+.icon-block .material-icons {
+    font-size: inherit;
+}
+
+footer.page-footer {
+    margin: 0;
+}
+img.header-logo-image{
+//position: relative;
+//top: 10px;
+}
+
+ul.desktop-nav-links-container.right
+{
+    position : absolute;
+    margin: 0;
+    right: 0;
+}
+a.sidenav-trigger.header-navbar-trigger
+{
+    position: absolute;
+    top : -95% !important;;
+
+}
+
+
+
+div.homepage-posts-container
+{
+    margin-top: 20px;
+}
+
+i.header-create-icon.small
+{
+    position: relative;
+    top : 2px;
+    display:inline-block !important;
+    left: 5px;
+    font-size: 15px;
+}
+a.create-post-link.btn
+{
+    padding-bottom: 5px!important;
+    font-size: 12px;
+    padding-top: px !important;
+    position: relative;
+    top: 0px;
+    color: wheat;
+    right : -20px;
+
+}
+.sidenav li > a > i,  .sidenav li > a > i.material-icons,a
+{
+    float: none;
+    margin: 0;
+    color: #607d8b;
+
+}
+
+
+.sidenav li > a {
+    right: 0 !important;
+}
+
+
+
+ul.footer-links-container
+{
+    display: inline-block;
+    float: right;
+}
+
+ul li.footer-link
+{
+    display: inline !important;
+    margin-left: 10px;
+
+}
+
+
+footer {
+    position: absolute !important;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    width: inherit;
+    display: block !important;
+    height : 40px;
+}
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin: 0 0 100px; /* bottom = footer height */
+}
+
+a.header-drop-down-product-type-close
+{
+    font-size: 10px;
+}
+
+ul.desktop-drop-down a.header-drop-down-product-type-close  span.material-icons {
+    display: inline-block !important;
+    //font-size: 15 px;
+    position: relative;
+    bottom: -1px;
+}
+
+
+ul.mobile-drop-down  a.header-drop-down-product-type-close span.material-icons {
+    display: inline-block !important;
+//font-size: 15 px;
+    position: relative;
+    top: 13px;
+}
+
+a.header-subcategory-link
+{
+    font-size: 12px !important;
+}
+

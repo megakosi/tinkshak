@@ -1,8 +1,23 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+//@import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+//@import '~bootstrap/scss/bootstrap';
+
+//Materialize css
+@import "_materialize.min.css";
+
+
+//Materialize icons
+@import "_materialize.icons.css";
+
+
+
+//Font awesome
+@import "_font-awesome.min.css";
+
+//Custom css
+@import "_custom.css";
