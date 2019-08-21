@@ -20,8 +20,8 @@
     <meta content='https://www.instagram.com/{{config('constants.site_name')}}' property='og:see_also' />
     <meta content='https://www.youtube.com/user/{{config('constants.site_name')}}' property='og:see_also' />
     <meta name='twitter:card' content='summary_large_image' />
-    <meta name='twitter:site' content='@'.{{config('constants.site_name')}} />
-    <meta name='twitter:creator' content='@'.{{config('constants.site_name')}} />
+    <meta name='twitter:site' content="{{'@'.config('constants.site_name')}}" />
+    <meta name='twitter:creator' content="{{'@'.config('constants.site_name')}}" />
     <link rel = 'shortcut icon' type='image/png' href = '{{asset('/img/tinkshak.png')}}' />
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css')}}" />
 
@@ -32,10 +32,9 @@
 @include('inc.navbar')
 
 <!--Page content container -->
-<div class="container">
+
     <!--Page content -->
     @yield('content')
-</div>
 
 <!--Floating action button -->
 <footer class="container">

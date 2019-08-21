@@ -170,3 +170,65 @@ a.header-subcategory-link
     font-size: 12px !important;
 }
 
+#site-header-nav
+{
+    border: 1px solid lightgrey;
+}
+
+.home-page-banner-container.parallax-container {
+
+    background-color: #363d49;
+    background-image: url('/img/homepage-hero-1x.jpg');
+    background-size: cover;
+    background-color: #052149;
+//background-position-y: -30%;
+    background-repeat: no-repeat;
+}
+.text-color-444 {
+
+
+    color : #444!important;
+
+    }
+
+/* label focus color */
+.input-field.home-search-field input[type=text]:focus + label {
+    color: grey;
+}
+
+#homepage-search-text
+{
+    color : #fff;
+    width: 90%
+}
+.container.home-page-header-texts-container
+{
+    position: relative;
+    top: 20px;
+
+}
+
+@media only screen and (min-width:993px)
+{
+
+    .container.home-page-header-texts-container
+    {
+        position: relative;
+        top: 30px;
+
+    }
+
+    .home-page-banner-container.parallax-container {
+
+        background-image: url('/img/woman-typing.jpeg');
+        width: 100%;
+        top: -6px;
+    }
+
+    .header-logo-image.brand-logo
+    {
+        float: left !important;
+        left : -35px;
+    }
+
+}

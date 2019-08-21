@@ -18,18 +18,26 @@ return [
     'min_post_body_length' => 144,
     'max_tag_length' => 30,
     'products' => [
+        'Computers' => ['Softwares' , 'Games' , 'Product Keys'],
         'Books' => ['E-books' , 'Audio Books' , 'Comics'],
-        'Mp3 Songs' => ['Mp3 Song' , 'Music Album', 'Videos' ,],
-        'Media' => ['Videos' , 'Photo Albums'] ,
-        'Computers' => ['Softwares' , 'Games' , 'Licence Keys'],
-        'Cards' => ['Gift Cards' , 'Event Ticket'],
+        'Media' => ['Videos' , 'Photo Albums' ,'Video Tutorial'] ,
+        'Mp3' => ['Mp3 Song' , 'Music Album' , 'Musical Sounds'],
+
         'More' => ['Code Scripts' , 'Movie Scripts']
+
     ],
 
-    'products_icons' => [
-        'books' => 'book',
-        'songs' => 'music_note',
-        'software' => 'desktop_windows'
-    ]
+    'products_icons' =>
+        [
+
+            'Books' => 'bookmark_border',
+
+            'Mp3' => 'music_note',
+
+            'Computers' => 'desktop_windows',
+
+            'Media' => 'ondemand_video'
+
+        ]
 ];
 ?>

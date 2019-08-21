@@ -14,7 +14,7 @@ class PagesController extends Controller
 
         $data =
             [
-                'head_title' => config('constants.site_name_uppercase').  ' - Buy/Sell E-books, Audio Books, Music Albums, Software , Scripts, Photo Albums e.t.c' ,
+                'head_title' => config('constants.site_name_uppercase').  ' - Online shopping for  E-books, Audio Books, Music Albums, Software , Scripts, Photo Albums e.t.c' ,
                 'head_description' => 'Buy/Sell your E-books, Audio Books , Music Albums, Software , Scripts, Photo Albums World wide '.config('constants.site_author')
             ];
 

@@ -1,4 +1,4 @@
-<nav class='white header-nav nav-extended z-depth-0' role="navigation">
+<nav class='white header-nav nav-extended z-depth-0 site-header-nav' role="navigation" id="site-header-nav">
     <div class='nav-wrapper container'>
         <ul class="icon-links-ul right">
             <li>
@@ -33,7 +33,7 @@
         @php
 
         $product_types  = config('constants.products');
-        $product_icons = config('constants.product_icons');
+        $product_icons = config('constants.products_icons');
 
        // echo $product_icons['books'];
         @endphp
@@ -45,14 +45,16 @@
 
                 @if(strtolower($product_type) == 'more')
                     <li>
-                        <a class="dropdown-trigger" href = '#' data-target = 'desktop-{{strtolower($product_type)}}-dropdown' href='' title="{{$product_type}}">{{$product_type}}
+                        <a class="dropdown-trigger" href = '#' data-target = 'desktop-{{strtolower($product_type)}}-dropdown'  title="{{$product_type}}">{{$product_type}}
                         <i class="material-icons right">arrow_drop_down</i>
                         </a>
                     </li>
                 @else
                     <li>
-                        <a class="dropdown-trigger" href = '#' data-target = 'desktop-{{strtolower($product_type)}}-dropdown' href='' title="{{$product_type}}">
+                        <a class="dropdown-trigger" href = '#' data-target = 'desktop-{{strtolower($product_type)}}-dropdown'  title="{{$product_type}}">
                                 {{$product_type}}
+
+                            <i class="material-icons left blue-grey-text"><?php echo $product_icons[$product_type]; ?></i>
                         </a>
                     </li>
                 @endif
@@ -60,7 +62,7 @@
                 <ul id="desktop-{{strtolower($product_type)}}-dropdown" class="desktop-drop-down dropdown-content">
                         @foreach($subcategories as $subcategory)
 
-                            <li><a class="header-subcategory-link" title="{{$subcategory}}" href="/products/{{strtolower(str_replace(' ' , '' , $subcategory))}}">{{$subcategory}}</a></li>
+                            <li><a class="header-subcategory-link text-color-444" title="{{$subcategory}}" href="/products/{{strtolower(str_replace(' ' , '-' , $subcategory))}}">{{$subcategory}}</a></li>
                         @endforeach
 
                             <li class="divider">
@@ -68,7 +70,7 @@
 
                             <li>
 
-                                <a href="#" class="header-drop-down-product-type-close">
+                                <a href="#" class="header-drop-down-product-type-close grey-text">
                                     Close
                                         <span class="material-icons small right">close</span>
 
@@ -96,17 +98,23 @@
             @foreach($product_types as $product_type => $subcategories)
 
                 @if(strtolower($product_type) == 'more')
-                    <li><a class="dropdown-trigger" href = '#' data-target = 'mobile-{{strtolower($product_type)}}-dropdown' href='' title="{{$product_type}}">{{$product_type}}
+                    <li>
+                        <a class="dropdown-trigger" href = '#' data-target = 'mobile-{{strtolower($product_type)}}-dropdown'  title="{{$product_type}}">{{$product_type}}
                             <i class="material-icons right">arrow_drop_down</i>
-                        </a></li>
+                        </a>
+                    </li>
                 @else
-                    <li><a class="dropdown-trigger" href = '#' data-target = 'mobile-{{strtolower($product_type)}}-dropdown' href='' title="{{$product_type}}">{{$product_type}}</a></li>
+                    <li>
+                        <a class="dropdown-trigger" href = '#' data-target = 'mobile-{{strtolower($product_type)}}-dropdown'  title="{{$product_type}}">{{$product_type}}
+                            <i class="material-icons right"><?php echo $product_icons[$product_type]; ?></i>
+                        </a>
+                    </li>
                 @endif
 
                     <ul id="mobile-{{strtolower($product_type)}}-dropdown" class="mobile-drop-down dropdown-content">
                         @foreach($subcategories as $subcategory)
 
-                            <li><a title="{{$subcategory}}" href="/products/{{strtolower(str_replace(' ' , '' , $subcategory))}}">{{$subcategory}}</a></li>
+                            <li><a title="{{$subcategory}}" href="/products/{{strtolower(str_replace(' ' , '-' , $subcategory))}}">{{$subcategory}}</a></li>
                         @endforeach
 
                             <li class="divider"></li>
