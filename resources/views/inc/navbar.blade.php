@@ -81,17 +81,15 @@
             @endforeach
 
             <li class="hide-on-med-and-down">
-                <a href = '/products/create' title="Add your product" class="btn rounded waves-effect waves-light blue-grey-text white border-info create-post-link">
-                    <b>Sell</b>
-                    <i class="material-icons header-create-icon small">add</i>
-                </a>
+                <a href = '/products/create' id = "header-login-link" title="Get started" class="btn waves-effect blue-grey-text white   create-post-link">
+                    <b>Get started</b>
+                 </a>
             </li>
         </ul>
         <ul id='nav-mobile' class='sidenav'>
             <li>
-                <a href = '/products/create' title="Write a new post" class="btn rounded waves-effect waves-light white blue-grey-text border-info create-post-link">
-                    <b>Sell</b>
-                    <i class="material-icons header-create-icon small">add</i>
+                <a href = '/products/create' id = "header-login-link" title="Get started" class="btn waves-effect blue-grey-text white   create-post-link">
+                    <b>Get started</b>
                 </a>
             </li>
 

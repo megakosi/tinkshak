@@ -17,16 +17,24 @@ return [
     'min_post_title_length' => 30,
     'min_post_body_length' => 144,
     'max_tag_length' => 30,
-    'products' => [
-        'Computers' => ['Softwares' , 'Games' , 'Product Keys'],
-        'Books' => ['E-books' , 'Audio Books' , 'Comics'],
-        'Media' => ['Videos' , 'Photo Albums' ,'Video Tutorial'] ,
-        'Mp3' => ['Mp3 Song' , 'Music Album' , 'Musical Sounds'],
+    'free_disk_space' => 50000000, //50MB,
+    'maximum_allowed_disk_space' => 1000000000, //1GB
+    'minimum_account_balance_before_payment' => 100,
+    'base_currency_symbol' => '$',
+    'base_currency_name' => 'USD',
+    'amount_charged_for_withdrawal' => 5,
+    'minimum_username_length' => 2,
+    'maximum_username_length' => 12,
+    'ip_url' => "http://ip-api.com/json/",
+    'products' =>
+        [
+            'Computers' => ['Softwares' , 'Games' , 'Product Keys'],
+            'Books' => ['E-books' , 'Audio Books' , 'Comics'],
+            'Media' => ['Video' , 'PlayList' , 'Photo' ,'Photo Gallery'] ,
+            'Mp3' => ['Mp3 Song' , 'Music Album' , 'Musical Sounds'],
+            'More' => ['Code Scripts' , 'Movie Scripts']
 
-        'More' => ['Code Scripts' , 'Movie Scripts']
-
-    ],
-
+        ],
     'products_icons' =>
         [
 

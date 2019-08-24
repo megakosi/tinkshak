@@ -170,10 +170,6 @@ a.header-subcategory-link
     font-size: 12px !important;
 }
 
-#site-header-nav
-{
-    border: 1px solid lightgrey;
-}
 
 .home-page-banner-container.parallax-container {
 
@@ -195,12 +191,38 @@ a.header-subcategory-link
 .input-field.home-search-field input[type=text]:focus + label {
     color: grey;
 }
-
 #homepage-search-text
 {
     color : #fff;
-    width: 90%
+    border : 1px solid rgba(192 , 192 , 192 , .3);
+    box-shadow: none;
+    padding: 5px 10px;
+    height : 43px;
+    width : 70%;
+    border-right: none;
+
+
 }
+
+#homepage-search-button
+{
+    background :teal;
+    border : 1px solid rgba(192 , 192 , 192 , .3);
+    border-left:none;
+    border-right: none;
+    display: inline;
+    cursor: pointer;
+    position: relative;
+    right:15px;
+    font-size: 12px !important;
+//background-color: yellow;
+    width : 40px;
+    height:55px;
+    text-align: center;
+}
+
+
+
 .container.home-page-header-texts-container
 {
     position: relative;
@@ -229,6 +251,35 @@ a.header-subcategory-link
     {
         float: left !important;
         left : -35px;
+        margin-left: -20px;
     }
 
+}
+#header-login-link , .walled-button
+{
+    box-shadow: none;
+    border : 1px solid rgba(192 , 192 , 192 , .4);
+    border-radius: 5px;
+    text-transform: none;
+
+}
+@media only screen and (min-width:481px){
+
+    #homepage-search-text
+    {
+        width : 350px;
+    }
+}
+fieldset,legend
+{
+    border: none;
+}
+
+footer a, footer a:hover {
+    text-decoration: none;
+}
+
+select
+{
+    cursor: pointer !important;
 }

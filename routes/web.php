@@ -13,3 +13,10 @@
 Route::get('/','PagesController@index');
 Route::resource('/posts' , 'PostsController');
 Route::get('/api/tags' , 'PagesController@tags');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

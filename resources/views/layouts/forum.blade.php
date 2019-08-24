@@ -22,7 +22,8 @@
     <meta name='twitter:card' content='summary_large_image' />
     <meta name='twitter:site' content="{{'@'.config('constants.site_name')}}" />
     <meta name='twitter:creator' content="{{'@'.config('constants.site_name')}}" />
-    <link rel = 'shortcut icon' type='image/png' href = '{{asset('/img/tinkshak.png')}}' />
+    <link rel = 'shortcut icon' type='image/png' href = '{{asset('/img/'.config('constants.site_name').'.png')}}' />
+    @yield('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css')}}" />
 
 </head>
@@ -36,16 +37,8 @@
     <!--Page content -->
     @yield('content')
 
-<!--Floating action button -->
-<footer class="container">
-    <ul class="footer-links-container">
-        <li class="footer-link"><a class="footer-floating-links blue-grey-text" href="/about" title="About us">About us</a></li>
-        <li class="footer-link"><a class="blue-grey-text" href="/contact" title="Contact us">Contact us</a></li>
-        <li class="footer-link"><a class="blue-grey-text" href="/terms" title="Terms of usage">Terms</a></li>
-        <li class="footer-link"><a class="blue-grey-text" href="/privacy" title="Privacy policy">Privacy</a></li>
-    </ul>
 
-</footer>
+@include('inc.footer')
 
 <!--JavaScript Dependencies -->
 <script type='text/javascript' language='JavaScript' src="{{asset('/js/jquery.min.js')}}"></script>
