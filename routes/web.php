@@ -15,12 +15,14 @@ Route::resource('/posts' , 'PostsController');
 Route::get('/api/tags' , 'PagesController@tags');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes(['verify' => true]);
+
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middleware('verified');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middleware('verified');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middleware('verified');

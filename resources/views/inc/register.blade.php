@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('head-contents')
+@section('head-content')
     <title>{{config('constants.site_name_uppercase'). ' '. config('constants.bullet'). ' Create an account'}}</title>
 
 @endsection
@@ -33,14 +33,65 @@
                             <label for="contact" class="col-md-4 col-form-label text-md-right">Contact</label>
 
                             <div class="col-md-6">
-                                <input id="contact" pattern="[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                                @error('name')
+                                <input value="07084419530" placeholder="e.g +2347084419530" id="contact" pattern="[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}" type="text" class="form-control @error('contact') is-invalid @enderror" name="contact" required autocomplete="contact" autofocus>
+                                @error('contact')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group row">
+                            <label for="country" class="col-md-4 col-form-label text-md-right">Country</label>
+
+                            <div class="col-md-6">
+                                <select id="country" type="text" class="form-control @error('country') is-invalid @enderror" name="country">
+
+                                    @php
+
+
+                                        $countries = config('countries');
+
+                                        $ip_details = json_decode(file_get_contents(config('constants.ip_url')) , true);
+                                        $user_country = $ip_details['countryCode'];
+
+                                    @endphp;
+
+                                    @foreach($countries as $country => $name)
+
+                                        @if($country == $user_country)
+                                            <option value="{{$country}}" selected>{{$name}}</option>
+                                        @else
+                                            <option value="{{$country}}">{{$name}}</option>
+                                        @endif
+
+                                    @endforeach
+                                </select>
+                                @error('country')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
 
 
                         <div class="form-group row">
@@ -58,60 +109,13 @@
                         </div>
 
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="country" class="col-md-4 col-form-label text-md-right">Country</label>
-
-                            <div class="col-md-6">
-                                <select id="country" type="text" class="form-control @error('country') is-invalid @enderror" name="country">
-
-                                    @php
-
-
-                                    $countries = config('countries');
-
-                                    $ip_details = json_decode(file_get_contents(config('constants.ip_url')) , true);
-                                    $user_country = $ip_details['countryCode'];
-
-                                    @endphp;
-
-                                    @foreach($countries as $country => $name)
-
-                                        @if($country == $user_country)
-                                        <option value="{{$country}}" selected>{{$name}}</option>
-                                        @else
-                                            <option value="{{$country}}">{{$name}}</option>
-                                        @endif
-
-                                    @endforeach
-                                </select>
-                                @error('country')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
 
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input value="password" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -125,7 +129,7 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" value="password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
 

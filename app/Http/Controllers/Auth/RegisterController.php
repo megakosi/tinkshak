@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -46,12 +46,41 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
+
+
+    protected function generateUserID (int $length) : string  {
+
+        $letters = Array("A" , "B" , "C" , "D" , "E" , "F" , "G" , "H" ,  "I" , "J" , "K" ,"L" ,"M" ,"N" ,"O" ,"P" ,"Q" ,"R" ,"S" , "T" ,
+            "U" ,"V" ,"W" ,"X" ,"Y" ,"Z" ,"a" ,"b" ,"c" ,"d" ,"e" ,"f" ,"g" ,"h" ,"i" ,"j" ,"k" ,"l" ,"m" ,"n" ,"o" ,
+            "p" ,"q" ,"r" ,"s" ,"t" ,"u" ,"v" ,"w" ,"x" ,"y" ,"z" ,"0" ,"1" ,"2" ,"3" ,"4" ,"5" ,"6" ,"7" ,"8"
+        , "9"  , "_");
+
+        $random_string = "";
+        $string_length = count($letters);
+        for($i = 0; $i < $length; $i++) {
+            $random_string.= $letters[rand(0 , $string_length-1)];
+
+        }
+
+        $record_length = count((array)User::find($random_string));
+        if($record_length > 1)
+        {
+            $this->generateUserID($length);
+        }
+
+        return $random_string;
+    }
+
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'username' => ['required' , 'string' , 'min:'.config('constants.minimum_username_length') ,
+                'max:'.config('constants.maximum_username_length') , 'unique:users'],
+            'contact' => ['required' , 'string' , 'unique:users']
         ]);
     }
 
@@ -63,10 +92,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'username' => $data['username'],
+            'contact' => $data['contact'],
             'password' => Hash::make($data['password']),
+            'user_id' => $this->generateUserID(config('constants.user_id_length'))
         ]);
     }
 }

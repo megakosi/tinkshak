@@ -29,8 +29,11 @@ class CreateUsersTable extends Migration
             $table->double('max_space' , 12, 2)->default(config('constants.free_disk_space'));
             $table->double('remaining_space' , 12, 2)->default(config('constants.free_disk_space'));
             $table->string('profile')->default('user.png');
-            $table->string('remember_token' , 100);
+            $table->string('remember_token' , 100)->nullable();
             $table->string('contact')->unique();
+            $table->string('password');
+            $table->string('email_verified_at')->nullable();
+            $table->integer('email_verified')->default(1);
         });
     }
 
