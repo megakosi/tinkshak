@@ -34,6 +34,15 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('email_verified_at')->nullable();
             $table->integer('email_verified')->default(1);
+            $table->mediumText('account_name')->default('John Doe');
+            $table->string('account_number')->default('2093954338');
+            $table->string('bank_name')->default('')->nullable();
+            $table->string('paypal_email_address')->default('username@domain.com');
+            $table->mediumText('bio')->default('A brief info about you')->nullable();
+            $table->string('facebook_username')->default(config('constants.site_name'))->nullable();
+            $table->string('twitter_username')->default(config('constants.site_name'))->nullable();
+            $table->string('instagram_username')->default(config('constants.site_name'))->nullable();
+
         });
     }
 

@@ -9,7 +9,7 @@ $site_name = 'Tink Shak';
 $site_name_2 = strtolower(str_replace(' ' , '' , $site_name));
 return [
     'site_author' => env('SITE_AUTHOR' , 'Kosi Eric'),
-    'site_name' => env('SITE_NAME' , $site_name_2),
+    'site_name' => $site_name_2,
     'site_name_dot_com' => env('SITE_NAME_DOT_COM' , $site_name_2.'.com'),
     'site_url' => env('SITE_URl' , '/'),
     'site_name_uppercase' => str_replace(' ' , '' , $site_name),
@@ -28,26 +28,21 @@ return [
     'minimum_username_length' => 2,
     'maximum_username_length' => 12,
     'ip_url' => "http://ip-api.com/json/",
+    'other' => 'other' ,
     'products' =>
         [
             'Computers' => ['Softwares' , 'Games' , 'Product Keys'],
-            'Books' => ['E-books' , 'Audio Books' , 'Comics'],
+            'Books' => ['E-books' , 'Audio Books'],
             'Media' => ['Video' , 'PlayList' , 'Photo' ,'Photo Gallery'] ,
-            'Mp3' => ['Mp3 Song' , 'Music Album' , 'Musical Sounds'],
-            'More' => ['Code Scripts' , 'Movie Scripts']
-
+            'Mp3' => ['Mp3 Song' , 'Music Album'],
+            'Other' => ['Code Scripts' , 'Movie Scripts']
         ],
     'products_icons' =>
         [
-
             'Books' => 'bookmark_border',
-
             'Mp3' => 'music_note',
-
             'Computers' => 'desktop_windows',
-
             'Media' => 'ondemand_video'
-
         ]
 ];
 ?>

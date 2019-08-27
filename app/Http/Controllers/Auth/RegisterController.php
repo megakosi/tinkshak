@@ -99,7 +99,10 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'contact' => $data['contact'],
             'password' => Hash::make($data['password']),
-            'user_id' => $this->generateUserID(config('constants.user_id_length'))
+            'product_type' => $data['product-type'],
+            'user_id' => $this->generateUserID(config('constants.user_id_length')),
+            'paypal_email_address' => $data['[email'],
+            'bank_name' => $data['name'],
         ]);
     }
 }

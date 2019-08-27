@@ -87,6 +87,7 @@
 
 
                                             $countries = config('countries');
+                                            $products = config('constants.products');
 
                                             //$ip_details = json_decode(file_get_contents(config('constants.ip_url')) , true);
                                             //$user_country = $ip_details['countryCode'];
@@ -112,7 +113,18 @@
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <label for="product-type" class="col-md-4 col-form-label text-md-right">Product Type</label>
 
+                                <div class="col-md-6">
+
+                                <select name = "product-type" id="product-type" class="form-control @error('product-type') is-invalid @enderror">
+                                @foreach($products as $product => $type)
+                                    <option value= "{{$product}}">{{$product}}</option>
+                                @endforeach
+                            </select>
+                                </div>
+                            </div>
 
                             <div class="form-group row">
                                 <label for="username" class="col-md-4 col-form-label text-md-right">Username</label>

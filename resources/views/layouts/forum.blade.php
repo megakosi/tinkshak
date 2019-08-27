@@ -20,31 +20,28 @@
     <meta content='https://www.instagram.com/{{config('constants.site_name')}}' property='og:see_also' />
     <meta content='https://www.youtube.com/user/{{config('constants.site_name')}}' property='og:see_also' />
     <meta name='twitter:card' content='summary_large_image' />
-    <meta name='twitter:site' content="{{'@'.config('constants.site_name')}}" />
-    <meta name='twitter:creator' content="{{'@'.config('constants.site_name')}}" />
-    <link rel = 'shortcut icon' type='image/png' href = '{{asset('/img/'.config('constants.site_name').'.png')}}' />
+    <meta name='twitter:site' content='{{'@'.config('constants.site_name')}}' />
+    <meta name='twitter:creator' content='{{'@'.config('constants.site_name')}}' />
+    <link rel = 'shortcut icon' type='image/png' href = '{{asset('/img/'.config('constants.site_name').'.png')}}'/>
     @yield('css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css')}}" />
-
+    <link rel='stylesheet' type='text/css' href='{{ asset('/css/app.css')}}' />
 </head>
 <body>
 
 <!--Navigation bar -->
-@include('inc.navbar')
-
+@yield('navbar')
 <!--Page content container -->
 
     <!--Page content -->
-    @yield('content')
 
+    @yield('content')
 
 @include('inc.footer')
 
 <!--JavaScript Dependencies -->
-<script type='text/javascript' language='JavaScript' src="{{asset('/js/jquery.min.js')}}"></script>
-<script type='text/javascript' language='JavaScript' src="{{asset('/js/materialize.min.js')}}"></script>
+<script type='text/javascript' language='JavaScript' src='{{asset('/js/jquery.min.js')}}'></script>
+<script type='text/javascript' language='JavaScript' src='{{asset('/js/materialize.min.js')}}'></script>
 <script type='text/javascript' language='JavaScript' src="{{asset('/js/custom.js')}}"></script>
-
 <!--Page JavaScript dependency -->
 @yield('javascript')
 </body>

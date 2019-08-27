@@ -43,7 +43,7 @@
             @foreach($product_types as $product_type => $subcategories)
 
 
-                @if(strtolower($product_type) == 'more')
+                @if(strtolower($product_type) == config('constants.other'))
                     <li>
                         <a class="dropdown-trigger" href = '#' data-target = 'desktop-{{strtolower($product_type)}}-dropdown'  title="{{$product_type}}">{{$product_type}}
                         <i class="material-icons right">arrow_drop_down</i>
@@ -81,21 +81,37 @@
             @endforeach
 
             <li class="hide-on-med-and-down">
-                <a href = '/products/create' id = "header-login-link" title="Get started" class="btn waves-effect blue-grey-text white   create-post-link">
-                    <b>Get started</b>
+                @guest
+                <a href = '/login' id = "header-login-link" title="Get started" class="btn waves-effect blue-grey-text white   create-post-link">
+                    Get started
+                    <i class="material-icons left">person_add</i>
                  </a>
+                @else
+                    <a href = '/dashboard' id = "header-login-link" title="Your Dashboard" class="btn waves-effect blue-grey-text white   create-post-link">
+                        {{ ucfirst(Auth::user()->username) }}
+                        <i class="material-icons left">person</i>
+                    </a>
+                @endguest
             </li>
         </ul>
         <ul id='nav-mobile' class='sidenav'>
             <li>
-                <a href = '/products/create' id = "header-login-link" title="Get started" class="btn waves-effect blue-grey-text white   create-post-link">
-                    <b>Get started</b>
-                </a>
+                @guest
+                    <a href = '/login' id = "header-login-link" title="Get started" class="btn waves-effect blue-grey-text white   create-post-link">
+                        <span class="material-icons">person_identity</span>
+                        <span class="logged-username-text">Get started</span>
+                    </a>
+                @else
+                    <a href = '/dashboard' id = "header-login-link" title="Your Dashboard" class="btn waves-effect blue-grey-text white   create-post-link">
+                        <span class="material-icons">person</span>
+                        <span class="logged-username-text">{{ ucfirst(Auth::user()->username) }}</span>
+                    </a>
+                @endguest
             </li>
 
             @foreach($product_types as $product_type => $subcategories)
 
-                @if(strtolower($product_type) == 'more')
+                @if(strtolower($product_type) == config('constants.other'))
                     <li>
                         <a class="dropdown-trigger" href = '#' data-target = 'mobile-{{strtolower($product_type)}}-dropdown'  title="{{$product_type}}">{{$product_type}}
                             <i class="material-icons right">arrow_drop_down</i>
