@@ -18,8 +18,8 @@ return [
     'min_post_title_length' => 30,
     'min_post_body_length' => 144,
     'max_tag_length' => 30,
-    'free_disk_space' => 50000000, //50MB,
-    'maximum_allowed_disk_space' => 1000000000, //1GB
+    'free_disk_space' => 52428800, //50MB,
+    'maximum_allowed_disk_space' => 10737418240, //10GB
     'minimum_account_balance_before_payment' => 100,
     'base_currency_symbol' => '$',
     'user_id_length' => 16,

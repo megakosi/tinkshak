@@ -8,10 +8,18 @@
     <link rel="stylesheet" type="text/css" href="{{asset('/css/materialize.min.css')}}" />
 @endsection
 
+@php
+    $user = Auth::user()
+@endphp
+
 @section('content')
     @include('inc.loggedin-nav')
+    @include('inc.user')
 @endsection
 
 @section('javascript')
     <script type="text/javascript" src = '{{asset('/js/dashboard.js')}}'></script>
 @endsection
+
+
+

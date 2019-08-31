@@ -103,6 +103,7 @@ class RegisterController extends Controller
             'user_id' => $this->generateUserID(config('constants.user_id_length')),
             'paypal_email_address' => $data['[email'],
             'bank_name' => $data['name'],
+            'bio' => $data["I'm into ".$data['product-type']]
         ]);
     }
 }

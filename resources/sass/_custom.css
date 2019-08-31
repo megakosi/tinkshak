@@ -289,9 +289,88 @@ span.logged-username-text
     top: -6px;
 }
 
-#navbar-account-balance
+#navbar-account-balance,#navbar-disk-usage
 {
     font-size: 20px;
     font-weight: bolder;
     opacity: .7
+}
+
+#navbar-disk-usage
+{
+    font-size: 15px;
+}
+
+.user-profile-img
+{
+    border:1px solid lightgrey;
+    cursor: pointer;
+
+}
+
+
+.user-profile-name
+{
+    display: inline-block !important;
+}
+
+
+.user-profile-country-name
+{
+    margin-left: 10px;
+}
+.user-profile-name
+{
+    margin-right: 10px;
+}
+
+.user-profile-verified-badge
+{
+    position: relative;
+    top : 5px;
+}
+
+
+.circle-image
+{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-size: cover;
+   //background-position: center;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.circle-image.user-profile-img
+{
+    width: 100px;
+    height: 100px;
+}
+
+.circle-image.navbar-user-profile-icon
+{
+    width: 30px !important;
+    height: 30px !important;
+    display: inline-block;
+    position: relative;
+    top:8px;
+}
+
+#navbar-logout-form
+{
+    display: inline-block;
+}
+
+.signout-icon,.user-profile-social-icons
+{
+    font-size: 24px;
+}
+.user-profile-social-icons
+{
+    margin-left: 10px;
+}
+
+a.btn{
+    text-transform: none;
 }

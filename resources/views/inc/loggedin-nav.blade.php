@@ -2,21 +2,38 @@
     <div class='nav-wrapper container'>
         <ul class="icon-links-ul right">
             <li>
-                <a class="social-icons-link facebook-icon-link" title="Facebook page" href = "https://facebook.com/{{config('constants.site_name')}}">
-                    <i class = 'fa fa-facebook-f fa-lg social-icons'></i>
-                </a>
-            </li>
-            <li>
-                <a class="social-icons-link twitter-icon-link" title="Twitter handle" href = "https://twitter.com/{{config('constants.site_name')}}">
-                    <i class = 'fa fa-twitter fa-lg social-icons'></i>
-                </a>
-            </li>
-            <li>
-                <a class="social-icons-link instagram-icon-link" title="Instagram handle" href = "https://instagram.com/{{config('constants.site_name')}}">
-                    <i class = 'fa fa-instagram fa-lg social-icons'></i>
+                <a id="navbar-disk-usage" data-target = 'desktop-disk-space-dropdown' class="social-icons-link blue-grey-text  facebook-icon-link dropdown-trigger" title="Your disk space">
+                    <span id="dashboard-user-remaining-space" class="space-field" data-space = "{{Auth::user()->remaining_space}}"></span>
+                    <span id="dashboard-user-space-of">of</span>
+                    <span id="dashboard-user-maximum-space" class="space-field" data-space = "{{Auth::user()->max_space}}"></span>
+                    <i class = 'material-icons left'>folder_shared</i>
+                    <i class="material-icons right">arrow_drop_down</i>
                 </a>
             </li>
 
+            <ul id="desktop-disk-space-dropdown" class="desktop-drop-down dropdown-content">
+
+                <li>
+                    <a class="header-subcategory-link text-color-444" title="Expand disk space" href="#">
+                        <span title="Expand disk space">Expand disk space</span>
+                        <span class="material-icons right small">
+                            swap_horiz
+                        </span>
+                    </a>
+                </li>
+
+                <li class="divider"></li>
+                <li>
+
+
+                    <a href="#" class="header-drop-down-product-type-close grey-text">
+                        Close
+                        <span class="material-icons small right">close</span>
+
+                    </a>
+
+                </li>
+            </ul>
         </ul>
 
     </div>
@@ -36,16 +53,16 @@
 
             <li>
                 <a class="dropdown-trigger" href = '#' data-target = 'desktop-account-dropdown'  title="Edit Account">
-                    <span title="account">Account</span>
-                    <i class="material-icons left blue-grey-text">person</i>
+                    <div class="circle-image navbar-user-profile-icon" style="background-image:url({{asset('profile/'.Auth::user()->profile)}});width:30px;height:30px;"></div>
+                    <span>Account</span>
+
                 </a>
             </li>
-
             <ul id="desktop-account-dropdown" class="desktop-drop-down dropdown-content">
 
                 <li>
                     <a class="header-subcategory-link text-color-444" title="Edit details" href="#">
-                        <span title="profile">Profile</span>
+                        <span>Profile</span>
                         <span class="material-icons right small">
                             edit
                         </span>
@@ -53,9 +70,20 @@
                 </li>
                 <li>
                     <a class="header-subcategory-link text-color-444" title="Payment Details" href="#">
-                        <span title="payment">Payment</span>
+                        <span>Payment</span>
                         <span class="material-icons right small">account_balance</span>
                     </a>
+                </li>
+
+                <li>
+                        <a id="logout-action"  class="header-subcategory-link text-color-444" title="Logout" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit()">
+
+                            <span>Logout</span>
+                        <span class="fa fa-sign-out right small signout-icon"></span>
+                                            </a>
+
                 </li>
 
 
@@ -76,7 +104,7 @@
 
             <li>
                 <a class="dropdown-trigger" href = '#' data-target = 'desktop-products-dropdown'  title="Products">
-                    <span title="products">Products</span>
+                    <span>Products</span>
                     <i class="material-icons left blue-grey-text">toc</i>
                 </a>
             </li>
@@ -92,7 +120,7 @@
                 <li>
                     <a class="header-subcategory-link text-color-444" title="Your downloads" href="#">
                         Downloads
-                        <span class="material-icons small right">get_app</span>
+                        <span class="material-icons small right">archive</span>
                     </a>
                 </li>
 
@@ -168,3 +196,6 @@
 
 
 
+<form id="logout-form" class="hide" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
