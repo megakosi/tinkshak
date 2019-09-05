@@ -25,7 +25,7 @@
             Unverified
     @endif">check_circle</span>
     <p>
-        Contact :  <a title="Send email" href="mailto:{{$user->email}}">{{$user->email}}</a> , <a href="tel:{{$user->contact}}" title="Call now">{{$user->contact}}</a>
+        Contact :  <a title="Send email" href="mailto:{{$user->email}}">{{$user->email}}</a> , <a href="tel:+{{config('countries_codes.'.strtoupper($user->country)).$user->contact}}" title="Call now">{{config('countries_codes.'.$user->country).$user->contact}}</a>
     </p>
 
 

@@ -28,7 +28,7 @@ return [
     'minimum_username_length' => 2,
     'maximum_username_length' => 12,
     'ip_url' => "http://ip-api.com/json/",
-    'other' => 'other' ,
+    'other' => 'Other' ,
     'products' =>
         [
             'Computers' => ['Softwares' , 'Games' , 'Product Keys'],
@@ -42,7 +42,8 @@ return [
             'Books' => 'bookmark_border',
             'Mp3' => 'music_note',
             'Computers' => 'desktop_windows',
-            'Media' => 'ondemand_video'
+            'Media' => 'ondemand_video',
+            'Other' => ''
         ]
 ];
 ?>

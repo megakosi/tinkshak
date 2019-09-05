@@ -92,7 +92,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -101,9 +100,9 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'product_type' => $data['product-type'],
             'user_id' => $this->generateUserID(config('constants.user_id_length')),
-            'paypal_email_address' => $data['[email'],
+            'paypal_email_address' => $data['email'],
             'bank_name' => $data['name'],
-            'bio' => $data["I'm into ".$data['product-type']]
+            'bio' => $data['product-type'] !== config('constants.other')? "I'm into ".$data['product-type'] : "I upload other stuffs"
         ]);
     }
 }

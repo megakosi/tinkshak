@@ -374,3 +374,37 @@ span.logged-username-text
 a.btn{
     text-transform: none;
 }
+
+span.registration-country-code
+{
+    border: 1px solid lightgrey;
+    border-right: none;
+    display: inline-block;
+    background-color: lightgrey;
+    width: 60px;
+    text-align: center;
+    border-right: none;
+
+
+
+}
+
+span.registration-country-code-text
+{
+    height: inherit;
+    position: relative;
+    top: 6px;
+
+}
+
+div.dropdown.bootstrap-select.form-control
+{
+
+    border : 1px solid lightgrey !important;
+    border-bottom: 2px solid lightgrey !important;
+}
+
+#new-user-verification-email {
+    padding-left: 10px;
+    padding-right :10px;
+}

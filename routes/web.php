@@ -11,7 +11,6 @@
 |
 */
 Route::get('/','PagesController@index');
-Route::resource('/posts' , 'PostsController');
 Route::get('/api/tags' , 'PagesController@tags');
 Auth::routes();
 
@@ -26,3 +25,4 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middle
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middleware('verified');
+Route::resource('users', 'UsersController');

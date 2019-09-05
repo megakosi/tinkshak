@@ -1,27 +1,18 @@
 @extends('layouts.app')
 @section('head-content')
     <title>{{config('constants.site_name_uppercase'). ' '. config('constants.bullet'). ' Create an account'}}</title>
-    <script type="text/javascript">
-        let obj = {
-            'username' : 'megakosi',
-            'email' : 'itskosieric@gmail.com',
-            'contact' : '07084419530',
-            'name' : 'Kosi Eric'
-        };
-        let prop;
-        window.addEventListener('DOMContentLoaded' , function (e) {
-
-            for (prop in obj){
-                document.getElementById(prop).value = obj[prop];
-            }
-
-
-        });
-
-
-    </script>
-
+    <script defer type="text/javascript" src="{{asset('js/register.js')}}"></script>
+    <script type="text/javascript" src="{{@asset('js/bootstrap-select.min.js')}}" defer></script>
+    <link rel="stylesheet" type="text/css" href="{{@asset('css/bootstrap-select.min.css')}}" />
 @endsection
+@php
+$countries_codes = config('countries_codes');
+$countries= config('countries');
+//$ip_details = json_decode(file_get_contents(config('constants.ip_url')) , true);
+                                            //$user_country = $ip_details['countryCode'];
+
+                                        $user_country = 'NG';
+@endphp
 
 @section('content')
     <div class="container">
@@ -52,7 +43,20 @@
                                 <label for="contact" class="col-md-4 col-form-label text-md-right">Contact</label>
 
                                 <div class="col-md-6">
-                                    <input  placeholder="+1 (555) 555-1234" id="contact" pattern="[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}" type="text" class="form-control @error('contact') is-invalid @enderror" name="contact" required autocomplete="contact" autofocus>
+                                    <div class="input-group">
+
+                                        <span class="input-group-addon registration-country-code">
+                                             <span data-countries-codes = "{{ json_encode($countries_codes) }}" id = "registration-country-code" class="registration-country-code-text">
+                                                @if(key_exists($user_country , $countries))
+                                                    +{!! $countries_codes[$user_country] !!}
+                                                @else
+                                                    +
+                                                 @endif
+                                            </span>
+                                        </span>
+
+                                        <input  placeholder="+1 (555) 555-1234" id="contact"  type="tel" class="form-control @error('contact') is-invalid @enderror registration-contact" name="contact" required autocomplete="contact" autofocus>
+                                    </div>
                                     @error('contact')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -65,7 +69,7 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" required autocomplete="email">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" required autocomplete="email" />
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -81,26 +85,23 @@
                                 <label for="country" class="col-md-4 col-form-label text-md-right">Country</label>
 
                                 <div class="col-md-6">
-                                    <select id="country" type="text" class="form-control @error('country') is-invalid @enderror" name="country">
+                                    <select data-show-icon="true" onchange="changeCountryCode()" id="country" type="text" class="form-control @error('country') is-invalid @enderror selectpicker" name="country">
 
                                         @php
 
 
-                                            $countries = config('countries');
+
                                             $products = config('constants.products');
 
-                                            //$ip_details = json_decode(file_get_contents(config('constants.ip_url')) , true);
-                                            //$user_country = $ip_details['countryCode'];
 
-                                        $user_country = 'NG';
                                         @endphp;
 
                                         @foreach($countries as $country => $name)
 
                                             @if($country == $user_country)
-                                                <option value="{{$country}}" selected>{{$name}}</option>
+                                                <option value="{{$country}}" data-content="<img width = '15' src = '<?php echo asset('flags/').'/'.$country.'.png'?>'/> <span>{{$name}}</span>" selected>{{$name}}</option>
                                             @else
-                                                <option value="{{$country}}">{{$name}}</option>
+                                                <option value="{{$country}}" data-content="<img width ='15' src = '<?php echo asset('flags/').'/'.$country.'.png'?>'/> <span>{{$name}}</span>">{{$name}}</option>
                                             @endif
 
                                         @endforeach

@@ -16,10 +16,12 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <link rel = 'shortcut icon' type='image/png' href = '{{asset('/img/'.config('constants.site_name').'.png')}}' />
     <link rel="stylesheet" type="text/css" href="{{asset('/css/bootstrap.min.css')}}" />
     @yield('head-content')
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
+
 </head>
 <body>
     <div id="app">
@@ -75,7 +77,9 @@
         </nav>
 
         <main class="py-4">
+            @include('inc.bootstrap-messages')
             @yield('content')
+
         </main>
 
         @include('inc.footer')
